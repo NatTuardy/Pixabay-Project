@@ -1,5 +1,6 @@
 console.log("list");
 import CreateRequest from "../../services/services";
+import { createBigPhoto } from "../createBigPhoto/createBigPhoto";
 
 class createListItems {
   render() {
@@ -11,10 +12,14 @@ class createListItems {
     const newRequest = new CreateRequest();
     let apiData = newRequest.render();
     apiData.then((data) => {
+      console.log(data);
       data.forEach((element) => {
+        let BigPhoto = new createBigPhoto();
+        BigPhoto.render(element.id, element.largeImageURL);
+
         imageContainer.insertAdjacentHTML(
           "beforeend",
-          `<div class="card">
+          `<button type="button"  id="modal-window" data-bs-toggle="modal" data-bs-target="#img_${element.id}"><div class="card">
     <img src="${element.largeImageURL}" class="card-img-top" alt="...">
     <div class="card-footer">
     <small class="text-muted">
@@ -24,8 +29,11 @@ class createListItems {
     <i class="bi bi-cloud-download">${element.downloads}</i>
     </small>
     </div>
-    </div>`
+    </div></button>`
         );
+        //let bPhoto = document.querySelector(`#${element.user}_${element.id}"`);
+        //imageContainer.append(bPhoto);
+        //console.log(bPhoto);
       });
     });
   }

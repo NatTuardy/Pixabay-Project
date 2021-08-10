@@ -1,0 +1,21 @@
+git add .
+git commit -m "   "
+git push origin gretta
+
+git checkout main
+
+git pull origin main
+
+git checkout gretta
+
+git merge main
+
+% решение конфликтов %
+во всех не своих файлах принимаем - incoming changes
+где нужно в своих - current change
+
+проверяем, что все работает - npm run ...
+
+git add .
+git commit -m "merged main in gretta and resolve conflicts"
+git push origin gretta

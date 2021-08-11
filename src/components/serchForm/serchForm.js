@@ -40,7 +40,9 @@ export default class SearchForm {
 
                const galleryDiv = document.querySelector('#images')
                // console.log(galleryDiv)
-               galleryDiv.remove()
+               if (galleryDiv) {
+                    galleryDiv.remove()
+               }
 
                this.createRequest.setUrl(searchFormInput.value)
                searchFormInput.value = ''

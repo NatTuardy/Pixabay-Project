@@ -3,16 +3,17 @@ import CreateRequest from "../../services/services";
 import { createBigPhoto } from "../createBigPhoto/createBigPhoto";
 
 class createListItems {
-  render() {
+
+  render(data) {
     let imageContainer = document.createElement("div");
     imageContainer.className = "container-sm row row-cols-1 row-cols-md-3 g-4";
     imageContainer.id = "images";
     document.body.append(imageContainer);
 
-    const newRequest = new CreateRequest();
-    let apiData = newRequest.render();
-    apiData.then((data) => {
-      console.log(data);
+    // const newRequest = new CreateRequest();
+    // let apiData = newRequest.render();
+    // response.then((data) => {
+       console.log('listItem data', data);
       data.forEach((element) => {
         let BigPhoto = new createBigPhoto();
         BigPhoto.render(element.id, element.largeImageURL);
@@ -35,7 +36,7 @@ class createListItems {
         //imageContainer.append(bPhoto);
         //console.log(bPhoto);
       });
-    });
+    // });
   }
 }
 

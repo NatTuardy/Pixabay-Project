@@ -2,7 +2,7 @@
  
 import {newForm} from '../serchForm/serchForm'
 
-newForm.sayHi = function () {
+newForm.loadMoreButton = function () {
     console.log("hi");
     let imageContainer = document.querySelector("#main-container");
     imageContainer.insertAdjacentHTML(
@@ -23,5 +23,5 @@ newForm.sayHi = function () {
     });
   };
   
-  newForm.sayHi();
+  newForm.loadMoreButton();
   

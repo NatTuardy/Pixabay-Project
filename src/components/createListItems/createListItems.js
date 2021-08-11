@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc54153ace2ad32dee4eafb5f256507384f6cd8d
 console.log("list");
 import CreateRequest from "../../services/services";
 import { createBigPhoto } from "../createBigPhoto/createBigPhoto";
@@ -41,3 +45,7 @@ class createListItems {
 }
 
 export { createListItems };
+<<<<<<< HEAD
+=======
+
+>>>>>>> fc54153ace2ad32dee4eafb5f256507384f6cd8d

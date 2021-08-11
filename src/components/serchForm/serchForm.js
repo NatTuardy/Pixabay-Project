@@ -1,5 +1,6 @@
 import { DocumentPosition } from 'domutils'
 import CreateRequest from '../../services/services'
+import { createListItems } from '../createListItems/createListItems'
 
 console.log('searchForm')
 
@@ -9,6 +10,7 @@ export default class SearchForm {
      constructor() {
           this.#container = document.createElement('div')
           this.createRequest = new CreateRequest()
+          this.createListItems = new createListItems()
      }
 
      render() {
@@ -36,21 +38,37 @@ export default class SearchForm {
                event.preventDefault();
                this.createRequest.resetPage()
 
-               //чистим галерею
-               // const galleryDiv = document.querySelector('.')
-               // galleryDiv.remove()
+               const galleryDiv = document.querySelector('#images')
+               // console.log(galleryDiv)
+               galleryDiv.remove()
 
                this.createRequest.setUrl(searchFormInput.value)
+               searchFormInput.value = ''
 
                // const getAnswer = async () => {
                
                //      try {
-                         const response = this.createRequest.render()
-                         console.log(response)
+                         const result = this.createRequest.render()
+                         // console.log('response', response)
+                         result
+                              .then((response) => response.json())
+                              // console.log(response)
+                              .then((image) => {
+                                   // console.log(image.hits)
+                                   this.createListItems.render(image.hits)
+                              })
+                              
+                         // console.log('data', data)
+                         // setTimeout(() => {
+                         //      this.createListItems.render(data)
+                         // }, 2000)
+                         
+               
                          // if (!response.ok) {
                          //      throw new Error('Произошла ошибка в получении данных об альбомах...')
                          // }
-                         // const result = await response.json()
+                         // .then((response) => response.json())
+                         // console.log(response)
                          
                          // result.forEach((album) => {
                          //      const albumHTML = createAlbumElement(album.title)

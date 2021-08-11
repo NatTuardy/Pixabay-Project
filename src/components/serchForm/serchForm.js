@@ -4,7 +4,7 @@ import { createListItems } from "../createListItems/createListItems";
 
 console.log("searchForm");
 
- class SearchForm {
+class SearchForm {
   #container;
 
   constructor() {
@@ -38,85 +38,35 @@ console.log("searchForm");
       this.createRequest.resetPage();
 
       const galleryDiv = document.querySelector("#images");
-      // console.log(galleryDiv)
-      if (galleryDiv) {
-        galleryDiv.remove();
+      const hideGallery = document.querySelector(".gallery-main");
+      const loadBtn = document.querySelector("#success");
+
+      hideGallery.classList.remove("isHidden");
+      loadBtn.classList.remove("isHidden");
+
+      if (hideGallery) {
+        hideGallery.textContent = "";
       }
 
       this.createRequest.setUrl(searchFormInput.value);
       searchFormInput.value = "";
 
-      // const getAnswer = async () => {
-
-      //      try {
       const result = this.createRequest.render();
-      // console.log('response', response)
+
       result
         .then((response) => response.json())
-        // console.log(response)
+
         .then((image) => {
-          // console.log(image.hits)
           this.createListItems.render(image.hits);
         });
-
-      // console.log('data', data)
-      // setTimeout(() => {
-      //      this.createListItems.render(data)
-      // }, 2000)
-
-      // if (!response.ok) {
-      //      throw new Error('Произошла ошибка в получении данных об альбомах...')
-      // }
-      // .then((response) => response.json())
-      // console.log(response)
-
-      // result.forEach((album) => {
-      //      const albumHTML = createAlbumElement(album.title)
-      //      dataContainer.append(albumHTML)
-      // })
-      // }
-      // catch(error) {
-      //      console.log ('error', error)
-      // }
-      // finally {
-      //      console.log ('finally')
-      //      toggleLoader()
-      // }
-      // }
-
-      // getAnswer()
     });
 
     this.#container.append(searchForm);
     searchForm.append(searchFormInput, submitFormButton);
 
     mainContainer.append(this.#container);
-    // return this.#container
   }
 }
 
 export const newForm = new SearchForm();
 newForm.render();
-
-// newForm.sayHi = function () {
-//   console.log("hi");
-//   let imageContainer = document.querySelector("#main-container");
-//   imageContainer.insertAdjacentHTML(
-//     "beforeend",
-//     '<div class="d-grid gap-2 col-6 mx-auto"><button class="btn btn-success" id="loadMore" type="button">Load more</button></div>'
-//   );
-//   const loadMoreBtn = document.querySelector("#loadMore");
-//   loadMoreBtn.addEventListener("click", () => {
-//     this.createRequest
-//       .render()
-//       .then((articles) => articles.json())
-//       .then((articles) => this.createListItems.render(articles.hits)).then(()=> {
-//           window.scrollTo({
-//               top: document.body.scrollHeight,
-//               behavior: 'smooth',
-//           })
-//       });
-//   });
-// };
-
-// newForm.sayHi();

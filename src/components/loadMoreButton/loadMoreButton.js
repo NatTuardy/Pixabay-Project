@@ -1,27 +1,24 @@
 // console.log('loadMore')
- 
-import {newForm} from '../serchForm/serchForm'
+
+import { newForm } from "../serchForm/serchForm";
 
 newForm.loadMoreButton = function () {
-    console.log("hi");
-    let imageContainer = document.querySelector("#main-container");
-    imageContainer.insertAdjacentHTML(
-      "beforeend",
-      '<div class="d-grid gap-2 col-6 mx-auto"><button class="btn btn-success" id="loadMore" type="button">Load more</button></div>'
-    );
-    const loadMoreBtn = document.querySelector("#loadMore");
-    loadMoreBtn.addEventListener("click", () => {
-      this.createRequest
-        .render()
-        .then((articles) => articles.json())
-        .then((articles) => this.createListItems.render(articles.hits)).then(()=> {
-            window.scrollTo({
-                top: document.body.scrollHeight,
-                behavior: 'smooth',
-            })
+  console.log("hi");
+  let imageContainer = document.querySelector(".more-button");
+  imageContainer.insertAdjacentHTML("beforeend", '<button class="btn btn-success isHidden" id="success" type="button">Load more</button>');
+  const loadMoreBtn = document.querySelector("#success");
+  loadMoreBtn.addEventListener("click", () => {
+    this.createRequest
+      .render()
+      .then((articles) => articles.json())
+      .then((articles) => this.createListItems.render(articles.hits))
+      .then(() => {
+        window.scrollTo({
+          top: document.body.scrollHeight,
+          behavior: "smooth",
         });
-    });
-  };
-  
-  newForm.loadMoreButton();
-  
+      });
+  });
+};
+
+newForm.loadMoreButton();

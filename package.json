@@ -6,11 +6,18 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack serve --env development",
-    "prod": "webpack serve --env production"
+    "prod": "webpack serve --env production",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NatTuardy/Pixabay-Project"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "homepage": "https://nattuardy.github.io/Pixabay-Project",
   "devDependencies": {
     "@babel/core": "^7.14.6",
     "@babel/plugin-proposal-class-properties": "^7.14.5",

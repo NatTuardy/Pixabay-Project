@@ -1,9 +1,6 @@
-// console.log('loadMore')
-
 import { newForm } from "../serchForm/serchForm";
 
 newForm.loadMoreButton = function () {
-  console.log("hi");
   let imageContainer = document.querySelector(".more-button");
   imageContainer.insertAdjacentHTML("beforeend", '<button class="btn btn-success isHidden" id="success" type="button">Load more</button>');
   const loadMoreBtn = document.querySelector("#success");

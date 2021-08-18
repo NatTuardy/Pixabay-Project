@@ -7,8 +7,6 @@ export default class CreateRequest {
     this.incrementPage.bind(this);
   }
   render() {
-    console.log(this.q_url);
-    console.log(this.page_url);
     const url = `https://pixabay.com/api/?image_type=photo&orientation=horizontal&q=${this.q_url}&page=${this.page_url}&per_page=12&key=${this.my_key}`;
     this.incrementPage();
     return fetch(url);

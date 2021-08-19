@@ -58,6 +58,8 @@ class SearchForm {
 
         .then((image) => {
           this.createListItems.render(image.hits);
+          console.log(image.hits)         
+
         });
     });
 

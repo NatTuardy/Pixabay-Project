@@ -11,7 +11,10 @@ newForm.loadMoreButton = function () {
     this.createRequest
       .render()
       .then((articles) => articles.json())
-      .then((articles) => this.createListItems.render(articles.hits))
+      .then((articles) => {
+           this.createListItems.render(articles.hits)
+           console.log(articles.hits)
+      })
       .then(() => {
         window.scrollTo({
           top: document.body.scrollHeight,

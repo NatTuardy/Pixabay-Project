@@ -3,8 +3,8 @@ import "basiclightbox/dist/basicLightbox.min.css";
 
 class createBigPhoto {
   render(id, largePhoto) {
-    console.log("largephoto" + largePhoto);
-    console.log("id" + id);
+    // console.log("largephoto" + largePhoto);
+    // console.log("id" + id);
     let mainContainer = document.querySelector("#main-container");
     mainContainer.insertAdjacentHTML(
       "beforeend",

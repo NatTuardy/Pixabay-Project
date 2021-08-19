@@ -6,9 +6,14 @@ git checkout main
 
 git pull origin main
 
+// megre GRETTA c MAIN
 git checkout gretta
-
 git merge main
+
+
+// megre MAIN c GRETTA
+git checkout main
+git merge gretta
 
 % решение конфликтов %
 во всех не своих файлах принимаем - incoming changes

@@ -8,7 +8,3 @@ import "./src/components/createListItems/createListItems";
 import "./src/components/loadMoreButton/loadMoreButton";
 import "./src/components/serchForm/serchForm";
 import "./src/components/createLogo/createLogo";
-import { createLogo } from "./src/components/createLogo/createLogo";
-import { createListItems } from "./src/components/createListItems/createListItems";
-
-console.log("hhhh");

@@ -1,8 +1,5 @@
-import { DocumentPosition } from "domutils";
 import CreateRequest from "../../services/services";
 import { createListItems } from "../createListItems/createListItems";
-
-console.log("searchForm");
 
 class SearchForm {
   #container;
